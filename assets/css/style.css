@@ -6,8 +6,43 @@
 
 :root {
     --primary: green;
+    --secondary: white;
 }
 
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+    background-color: var(--primary);
+    color: var(--secondary);
+    text-align: center;
+    padding: 10px 0;
+}
+
+.start-game {
+    display: inline-block;
+    text-align: center;
+    width: 100%
+}
+
+.start-game h2 {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.start-game p {
+    display: inline;
+}
+
+.start-btn {
+    text-align: center;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+    bottom: 10px;
+    position: absolute;
+    width: 100%;
 }
