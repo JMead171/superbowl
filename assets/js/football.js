@@ -41,9 +41,34 @@ let getTeams = function (event) {
 
 let coinToss = function() {
     let heads = Math.floor(Math.random() * ((2-1)+1)+1);
-    console.log(heads);
-    heads === 1 ?  console.log(`${homeName} will recieve`) :  console.log(`${awayName} will recieve`);
+    let recKickEl = document.querySelector('.lets-go');
+    let receiveKick = document.createElement('p')
+    recKickEl.appendChild(receiveKick);
+    let recTeam = "";
+    let KickTEam = "";
+    heads === 1 ?  receiveKick.innerHTML =  `${homeName} will recieve` :  receiveKick.innerHTML = `${awayName} will recieve`;
+    if (heads === 1) {
+        recTeam = homeName;
+        kickTeam = awayName;
+    } else {
+        recTeam = awayName;
+        kickTeam = homeName;
+    };
     document.getElementById('head-tails').remove();
+    setTimeout(function() {
+        let domEl = document.querySelector('.lets-go');
+        let domPrompt = document.createElement('p');
+        domEl.appendChild(domPrompt);
+        heads ===1 ? domPrompt.innerHTML = `now live... ${awayName} kick off` : domPrompt.innerHTML = `now live... ${homeName} kick off`
+    }, 4000);
+    setTimeout(function() {
+        let tdEl = document.querySelector('.lets-go');
+        let tdReturn = document.createElement('p')
+        tdEl.appendChild(tdReturn);
+        let td = Math.floor(Math.random() * ((15-1)+1)+1);
+        console.log(td);
+        td === 7 ? tdReturn.innerHTML = `now live... 🏈 TOUCHDOWN ${recTeam}!!!!` : tdReturn.innerHTML = `now live... The ${recTeam} return the ball to the 25 yard line.`
+    }, 8000);
 }
 
 
