@@ -11,6 +11,7 @@
 <body>
     <header>
         <h1>Welcome to the Superbowl</h1>
+        <button onclick="window.location.reload();" class='reset-game'>Reset Game</button>
     </header>
 
     <section class="start-game">
@@ -19,12 +20,11 @@
             <input type="text" placeholder="Team name" id='home-team'>
             <p> vs.</p>
             <input type="text" placeholder="Team name" id='away-team'>
-            <div>
-                <button type="submit" value="Submit" class="start-btn">Start Game</button> 
-                <button onclick="window.location.reload();" class='reset-game'>Reset Game</button>
-            </div>
+            <h3><span class='home-score'>0</span><span class=away-score>0</span></h3>
+            <button type="submit" value="Submit" id="startGame-btn" class="start-btn">Start Game</button> 
         </form>
         <p class='error-msg'></p>
+        <br>
     </section>
 
     <section class='lets-go'>

@@ -35,9 +35,22 @@ header {
     display: inline;
 }
 
-.start-btn {
+.start-game span {
     text-align: center;
-    margin-top: 10px;
+    padding: 0 100px;
+    font-size: 22px;
+}
+
+.lets-go {
+    margin: 5px 20px;
+}
+
+.welcome {
+    display: inline;
+}
+
+#head-tails {
+    margin: 0 10px;
 }
 
 footer {
