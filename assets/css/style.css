@@ -41,7 +41,7 @@ header {
     font-size: 22px;
 }
 
-.lets-go {
+.lets-go, .pick-a-play {
     margin: 5px 20px;
 }
 
@@ -51,6 +51,14 @@ header {
 
 #head-tails {
     margin: 0 10px;
+}
+
+.pick-play {
+    display: inline;
+}
+
+.lets-go span, .pick-a-play span {
+    color: rgb(196, 8, 8);
 }
 
 footer {
