@@ -41,24 +41,30 @@ header {
     font-size: 22px;
 }
 
-.lets-go, .pick-a-play {
+.play-by-play {
+    font-display: inline;
+}
+
+.play-by-play button {
+    margin-left: 20px;
+}
+
+.play-by-play p {
     margin: 5px 20px;
 }
 
-.welcome {
-    display: inline;
-}
-
 #head-tails {
-    margin: 0 10px;
+    margin: 0 20px;
 }
 
-.pick-play {
-    display: inline;
-}
 
-.lets-go span, .pick-a-play span {
+.play-by-play span {
     color: rgb(196, 8, 8);
+}
+
+.end-game {
+    text-align: center;
+    color: darkred;
 }
 
 footer {
