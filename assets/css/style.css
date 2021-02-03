@@ -7,6 +7,8 @@
 :root {
     --primary: green;
     --secondary: white;
+    --endgame: darkred;
+    --error:  rgb(196, 8, 8);
 }
 
 body {
@@ -41,12 +43,16 @@ header {
     font-size: 22px;
 }
 
+.welcome {
+    font-weight: bolder;
+}
+
 .play-by-play {
     font-display: inline;
 }
 
-.play-by-play button {
-    margin-left: 20px;
+#fg {
+    margin: 0;
 }
 
 .play-by-play p {
@@ -57,14 +63,13 @@ header {
     margin: 0 20px;
 }
 
-
 .play-by-play span {
-    color: rgb(196, 8, 8);
+    color: var(--error);
 }
 
 .end-game {
     text-align: center;
-    color: darkred;
+    color: var(--endgame);
 }
 
 footer {

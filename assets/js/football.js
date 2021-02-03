@@ -12,7 +12,7 @@ let offense = "";
 let defense = "";
 let endOfGame = 0;
 
-
+// Welcome teams
 let welcome = function (homeTeam, awayTeam) {
     homeTeamEl.innerHTML = "";
     awayTeamEl.innerHTML = "";
@@ -45,12 +45,13 @@ let getTeams = function (event) {
     }
 };
 
+// Coin toss
 let startGame = function() {
     let heads = Math.floor(Math.random() * ((2-1)+1)+1);
     let recKickEl = document.querySelector('.play-by-play');
     let receiveKick = document.createElement('p')
-    recKickEl.appendChild(receiveKick);
-    heads === 1 ?  receiveKick.innerHTML =  `${homeName} won the coin toss and will recieve` :  receiveKick.innerHTML = `${awayName} won the coin toss and will recieve`;
+    recKickEl.prepend(receiveKick);
+    heads === 1 ?  receiveKick.innerHTML =  `${homeName} won the coin toss and will receive` :  receiveKick.innerHTML = `${awayName} won the coin toss and will receive`;
     if (heads === 1) {
         defense = homeName;
         offense = awayName;
@@ -62,11 +63,12 @@ let startGame = function() {
     kickOff();
 }
 
+// Kickoff
 let kickOff = () => {
     setTimeout(function() {
         let domEl = document.querySelector('.play-by-play');
         let domPrompt = document.createElement('p');
-        domEl.appendChild(domPrompt);
+        domEl.prepend(domPrompt);
         domPrompt.innerHTML = `<span>now live...</span> ${offense} kick off`;
         let switchSides = offense;
         offense = defense;
@@ -75,7 +77,7 @@ let kickOff = () => {
     setTimeout(function() {
         let tdEl = document.querySelector('.play-by-play');
         let tdReturn = document.createElement('p')
-        tdEl.appendChild(tdReturn);
+        tdEl.prepend(tdReturn);
         let td = Math.floor(Math.random() * ((15-1)+1)+1);
         td === 7 ? tdReturn.innerHTML = `<span>now live...</span> 🏈 TOUCHDOWN ${offense}!!!!` : tdReturn.innerHTML = `<span>now live... </span> The ${offense} return the ball to the 25 yard line.`
         if (td === 7) {
@@ -92,36 +94,25 @@ let kickOff = () => {
         } else {
             let playE1 = document.querySelector('.play-by-play');
             let play1 = document.createElement('p')
-            playE1.appendChild(play1);
-            play1.innerHTML = `${offense} pick a play `;
+            playE1.prepend(play1);
+            play1.innerHTML = `${offense} pick a play <button id='run' class='run'>Run</button><button id='pass' class='pass'>Pass</button> `;
             play1.classList.add('pick-play');
-            let playE2 = document.querySelector('.play-by-play');
-            let play2 = document.createElement('button')
-            playE2.appendChild(play2);
-            play2.innerHTML = "Run";
-            play2.classList.add('run');
-            play2.id = "run";
-
-            let playE3 = document.querySelector('.play-by-play');
-            let play3 = document.createElement('button')
-            playE3.appendChild(play3);
-            play3.innerHTML = "Pass";
-            play3.classList.add('pass');
-            play3.id = "pass";
         }
     }, 7000);
 
 }
 
+// Run a play
 let runAplay = function(e) {
     if (endOfGame === 8) {
         document.getElementById('remove').remove();
         let pickEl = document.querySelector('.end-game');
         let pickPlay = document.createElement('h2')
-        pickEl.appendChild(pickPlay);
+        pickEl.prepend(pickPlay);
+        console.log(homeScore, awayScore);
         if (homeScore > awayScore) {
             pickPlay.innerHTML = `THE ${homeName} WON THE GAME`;
-        } else if (awayScore < homeScore) {
+        } else if (awayScore > homeScore) {
             pickPlay.innerHTML = `THE ${awayName} WON THE GAME`;
         } else {
             pickPlay.innerHTML = `THE GAME ENDED IN A TIE`;  
@@ -137,7 +128,7 @@ let runAplay = function(e) {
     let pickEl = document.querySelector('.play-by-play');
     let pickPlay = document.createElement('p')
     pickPlay.classList.add('pick-play');
-    pickEl.appendChild(pickPlay);
+    pickEl.prepend(pickPlay);
 
     if (e.target.outerText === "Pass") {
         let td = Math.floor(Math.random() * ((7-1)+1)+1);
@@ -154,13 +145,7 @@ let runAplay = function(e) {
             }
             kickOff();
         } else {
-            pickPlay.innerHTML = `<span>now live...</span> ${offense} pass is incomplete..kick a field `;
-            let playE2 = document.querySelector('.play-by-play');
-            let play2 = document.createElement('button')
-            playE2.appendChild(play2);
-            play2.innerHTML = "FG";
-            play2.classList.add('fg');
-            play2.id = 'fg';
+            pickPlay.innerHTML = `<span>now live...</span> ${offense} pass is incomplete..kick a field <button class='fg' id='fg'>FG</button>`;
         }
     } else if (e.target.outerText === "Run") {
         let td = Math.floor(Math.random() * ((10-1)+1)+1);
@@ -177,13 +162,7 @@ let runAplay = function(e) {
             }
             kickOff();
         } else {
-            pickPlay.innerHTML = `<span>now live...</span> ${defense} defense stopped the run...kick a field `;
-            let playE2 = document.querySelector('.play-by-play');
-            let play2 = document.createElement('button')
-            playE2.appendChild(play2);
-            play2.innerHTML = "FG"; 
-            play2.classList.add('fg');   
-            play2.id = 'fg';
+            pickPlay.innerHTML = `<span>now live...</span> ${defense} defense stopped the run...kick a field <button id='fg' class='fg'>FG</button> `;
         }
     } else {
         let fieldG = Math.floor(Math.random() * ((4-1)+1)+1);
@@ -206,22 +185,10 @@ let runAplay = function(e) {
             defense = switchSides;
             let playE1 = document.querySelector('.play-by-play');
             let play1 = document.createElement('p')
-            playE1.appendChild(play1);
-            play1.innerHTML = `${offense} pick a play `;
+            playE1.prepend(play1);
+            play1.innerHTML = `${offense} pick a play <button id='run' class='run'>Run</button><button id='pass' class='pass'>Pass</button> `;
             play1.classList.add('pick-play');
-            let playE2 = document.querySelector('.play-by-play');
-            let play2 = document.createElement('button')
-            playE2.appendChild(play2);
-            play2.innerHTML = "Run";
-            play2.classList.add('run');
-            play2.id = "run";
-    
-            let playE3 = document.querySelector('.play-by-play');
-            let play3 = document.createElement('button')
-            playE3.appendChild(play3);
-            play3.innerHTML = "Pass";
-            play3.classList.add('pass');
-            play3.id = "pass";
+          
         }
     }; 
 }

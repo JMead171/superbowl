@@ -11,11 +11,9 @@ This project is footbal game app.
 
 Create a football game where two teams verse one another.
 User inputs team names
-Game will have four quarters
 The teams will be able to score a field goal 3 points or a touchdown 7 points.
-Each team will have 3 possessions/chances to score each quarter.
-The defense and offensive will have strength variables that will change.
-Scores will be achieved randomly based on strength variables.
+Each team will have 4 possessions/chances to score each quarter.
+Scores will be achieved randomly based on an alogrithm.
 
   
 ## Table of Contents
@@ -43,11 +41,12 @@ Pull requests are welcome. For major chages, please open an issue first to discu
   
 
 ## Technology Used
-JavaScript, HTML5, CSS and Media Queries.
+JavaScript, HTML5 and CSS .
 
 
 ## Screen Shot
-
+![image](https://user-images.githubusercontent.com/64744763/106779173-bb23d980-6614-11eb-9fdc-f63e0a391a51.png)
+  
   
 ## Questions
 Please send questions to jeffdmead171@gmail.com, more information can be found at https://github.com/JMead171/superbowl
